@@ -60,9 +60,10 @@ GROUP BY
 order by 
 	'Net Death Count' desc
 
--- 5. Showing max death count per continents
+-- 5. Showing max death count per continents - 2
 SELECT 
-	continent , 
+	--continent AS location, 
+	location ,
 	(MAX( total_deaths )) AS 'Net Death Count Per Continent'
 from 
 	CovidTestDB..CovidDeaths
@@ -87,18 +88,16 @@ having
 	sum( cast(new_cases as int )  ) != 0 
 order by 1,2 
 
-SELECT  
-	sum( new_cases ) as total_cases ,
-	sum( cast(new_deaths as int )  ) as total_deaths , 
+SELECT  -- 1
+	sum( new_cases ) as total_cases ,	sum( cast(new_deaths as int )  ) as total_deaths , 
 	round(sum( cast(new_deaths as float )  )/sum( (new_cases)  )*100  ,2)as DeathPercentage
 from 
 	CovidTestDB..CovidDeaths
-where 
+where	
 	continent is not null
 --group by date 
 --having sum( cast(new_cases as int )  ) != 0 
-order by 
-	1,2 
+order by 1,2 
 
 
 -- 8 . Looking at Total Population vs Total Vaccination for each location
