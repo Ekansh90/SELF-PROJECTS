@@ -26,22 +26,27 @@ def sportfn():
         newcursor.execute(" Use testdatabase ")
         newcursor.execute("create table if not exists ALL_SPORTS(SRNO char(225), Sport char(225))")
         
-        rowCount = newcursor.execute("SELECT COUNT(*) FROM ALL_SPORTS ;")
-        if rowCount == 0 :
+        rowCountQuery = ("SELECT COUNT(*) FROM ALL_SPORTS ; ")
+        rowCount = newcursor.execute(rowCountQuery)
+
+        if rowCount == None :
             # query to populate table if sports table is empty 
-            newcursor.execute(""" insert  into all_sports(SRNO, Sport) 
-                              values (1, 'Football'),
-                              (2, 'Basketball'),
-                              (3, 'Tennis'),
-                              (4, 'Baseball'),
-                              (5, 'Badminton'); """)
-        else :
-            query=("select * from ALL_SPORTS " )
-            newcursor.execute(query)
-            for i in newcursor:
-                SRNO,Sport=i
-                print(SRNO,Sport)
-            sportfn()
+            newcursor.execute(""" insert into ALL_SPORTS(SRNO, Sport) values (1, 'Football'),(2, 'Basketball'),(3, 'Tennis'),(4, 'Baseball'),(5, 'Badminton') """)
+            db.commit()
+            
+        query=("select * from ALL_SPORTS " )
+        newcursor.execute(query)
+        
+        for i in newcursor:
+            """
+            print(i)
+            """
+            SRNO,Sport=i
+            print(SRNO,Sport)
+
+
+        sportfn()
+        
 
     elif(inp==2):
         print(" 1 : Add New Student's Entry With Sport ")
