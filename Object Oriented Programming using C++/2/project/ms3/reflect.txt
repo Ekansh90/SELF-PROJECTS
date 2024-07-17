@@ -1,0 +1,62 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Name: Ekansh	
+// Seneca Student ID: 167454214
+// Seneca email: ekansh@myseneca.ca
+// Date of completion:
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+REFLECT
+
+Throughout the three milestones of the final project , we went over the topics discussed below :
+Static members of a class . A static variable stays the same for all instance objects of the class . These need to be define outside of the class and cannot be defined inside the 
+class definition itself . The static member we used in the utitlity module:
+static char m_delimiter;
+It needed to be initialized in the Seneca namespace outside the class . We used a static member function of the class to make changes to this member .
+static void setDelimiter(char newDelimiter);
+This function would set the delimiter member for all instances of the class .
+Another set of static members we used in the stations module , m_fieldWidth and id_generater , these would get set up in Custom constructor each time a new station is instantiated .
+
+Although the requirement wanted us to make m_lstItem  to be an array of Item pointers . Having learnt about STL library , 
+I preferred using vectors as it is easier to resize a vector and I don’t have to allocate memory each time to adjust the length of the array , 
+any time there’s a new object to be inserted into the array . Vectors are far more easier to insert objects to , resize and they take care of memory management 
+of it’s elements given that memory was not manually allocated for each member . Initially I tried making a vector of Item pointers, manually allocating memory for each element . 
+But on running through the matrix compiler there was a loss of 3 bytes somewhere and I could not track it where the memory leak was . 
+Although , I eventually found out that memory leak was in the move assignment operator that when moving m_lstItem vector , the memory was not being deallocated for previously 
+occupied object.
+
+But before I could find this out , I just used a smart pointer . 
+The biggest help a smart unique ptr brings is that I don’t need to deallocate memory for it as the constructor and destructor of a smart pointer takes care of memory 
+allocation and deallocation respectively . I just need to make each element with the std::make_unique :
+m_lstItem[i] = std::make_unique<Item>(tempToken);
+, and the smart pointer takes care of memory management of through RAII - resource allocation on initialization . This helped me with not worrying about memory leaks anymore .
+
+We also ensured that a customer order can only be moved and not copied for which we deleted the copy constructor and copy assignment operator . 
+Also put our constructor in try catch block , so we can handle exceptions or errors generated when instantiating new CustomerOrder object.
+We also used global variables these were the double ended ques that would handle the stations present on line that need servicing - g_pending , g_complete , g_incomplete. 
+Although at beginning when I was writing all the code for testing in the header file . The deques existing outside the class inside the namespace worked just fine but as 
+soon as I created a cpp file I continually ran into linkage errors , that g_pending , g_complete , g_incomplete . Then I remembered to make a variable global we needed the extern keyword
+,which attaches external linkage to a variable , i.e. a variable is declared here but can be used somewhere else by providing definitions . Then I also put their initialization 
+in the cpp file .
+
+A workstation object had a order member (A doubly ended queue) and a pointer to next Workstation. Recently , learning about linked list where each object had a pointer to the 
+next object and how vectors and deques are made from such fundamentals , implementing The milestone 3 felt kind of like that . 
+I also worked with deque just for practice on the workshop where we make algorithms , deques allows us to pop and push elements from both ends as it’s a double ended queue 
+unlike vectors where we can only push and pop from the end . 
+furthermore , The LineManager object contains a vector of WorkStation pointers . 
+At first I made the implementation of the constructor with for loops but as per the requirement we had to use STL Algorithms , so I thought of using iterators , I read from the input file
+ first and next stations , if read for both succeeded I tried to find the first element from the list of stations received in parameter , if both found I would push -the iterator itself
+ to active line and set the next station as the next station that was found using another iterator returned from another find_if algorithm . If getline failed for next station ,
+ I would just set that element’s next station as nullptr .Finding the first station was a bit confusing because I thought It was just the station with Id 1 but the output was not matching ,
+So I looked for a station which any other station did not have as it’s next station pointer . 
+Then For reordering , I ordered them by length first and then with next stations as consecutive first stations . 
+Then finally finding the one station with next station as nullptr and pushing it back to the original vector .
+
+This milestone helped me go through all the previous topics that we learnt in advanced c++ programming , even helped with learning some new topics which I did not used much before 
+like iterators and smart pointers and deques .
+
+
