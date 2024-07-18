@@ -1,0 +1,6 @@
+sql occi c++ connection pass and id : use the second one
+id : ekansh
+pass : ekansh23
+
+id : ekansh2
+pass : ekansh@023
