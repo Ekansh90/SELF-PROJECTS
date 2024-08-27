@@ -7,21 +7,19 @@ Below is an elaboration on the structure and components of this database, along 
 The database was designed with the following key tables:
 
 
-Customers: Stores customer information, including contact details and preferences.
+Employees: Manages employee credentials , data, including roles and shifts.
 
-Employees: Manages employee data, including roles, shifts, and salaries.
+Schedule:What shifts are there for to be assiged to multiple employees , day , night or evening shifts .
 
-Menu_Items: Contains details about the dishes offered, including pricing and ingredients.
+Menu : What type of menus are there and which is being shown at the current time , breakfast menu , lunch menu or dinner menu .
 
-Orders: Records customer orders, linking them to menu items and customer details.
+Menu_Content : Items associated to each of the menus . 
+
+RESTAURANT_BRANCH : For restaurants chains which manage multiple branches around the country .
 
 Inventory: Tracks the ingredients and supplies, including their quantities and reorder levels.
 
-Suppliers: Holds information about the suppliers who provide the ingredients.
-
-Reservations: Manages table reservations, including customer details and reservation times.
-
-Payments: Tracks payment details for orders, including payment method and status.
+FINANCES : Profit and loss margins associated to a specific branch of that restaurant .
 
 2. SQL Scripts and Operations
 Insertion Script (insertionScript.sql): This script is responsible for inserting initial data into the database. It populates the tables with sample data, such as menu items, customer records, employee details, and inventory levels. The script is designed to ensure data integrity and consistency across the database.
