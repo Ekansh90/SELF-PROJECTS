@@ -3,7 +3,7 @@
 
 2)The sql file for the same database below is in creationScript.sql 
 
-3)Additional views have been created for different users to check different scenarios performed on the database .
+3)Additional views have been created for different users to check different business reports .
 
 
 ![image](https://github.com/user-attachments/assets/af05ff83-21f5-418e-9fe8-ce5012001a93)
