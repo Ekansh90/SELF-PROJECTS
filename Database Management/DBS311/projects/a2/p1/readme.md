@@ -64,3 +64,37 @@ Conclusion
 This project demonstrates the integration of C++ with Oracle databases through OCCI, allowing for a robust and scalable shopping cart management system. 
 The system provides essential e-commerce functionality such as order placement, status tracking, and cancellation, all while maintaining data integrity 
 and security through careful management of database interactions.
+
+
+
+KEY CONCEPTS USED FOR CREATING PROCEDURES :
+
+1. Input and Output Parameters
+Input Parameters (IN):
+These parameters are used to pass values into a procedure or function. They act as inputs to the block of code, and their values cannot be modified within the procedure or function.
+Example Use: Suppose you want to pass a customer ID to a procedure to retrieve details about that customer. The customer ID would be passed as an input parameter.
+
+
+Output Parameters (OUT):
+These parameters are used to return values from a procedure or function. Unlike input parameters, the procedure or function can modify and set the value of an output parameter, which can then be accessed by the calling environment.
+Example Use: If you want to determine whether a specific product is in stock and return that information, you would use an output parameter to return the stock status.
+
+2. Conditional Statements
+Conditional Statements (IF-THEN-ELSE):
+Conditional statements in PL/SQL are used to execute certain parts of the code based on specific conditions.
+IF-THEN: Executes a block of code if a specified condition is true.
+IF-THEN-ELSE: Provides an alternative block of code that runs if the condition is false.
+ELSIF: Allows checking multiple conditions in sequence, where the first condition that evaluates to true will trigger its corresponding code block.
+Use Case: Conditional statements are useful when you need to perform different actions based on varying conditions, such as applying a discount during a particular time of year or checking whether an item is available in stock.
+
+3. Using and Creating Functions
+
+Creating Functions:
+A function in PL/SQL is a reusable block of code that returns a single value. Functions can accept parameters (input, output, or both) and must return a value of a specific data type.
+Functions are similar to procedures but are typically used when you need to compute and return a value, such as calculating a discount or generating a unique order ID.
+
+Using Functions:
+Once a function is created, it can be invoked in SQL statements, PL/SQL blocks, or other functions and procedures. Functions are often used to encapsulate and reuse logic that needs to be applied consistently across multiple parts of an application.
+Example Use: A function might be used to calculate the total price of an order with taxes applied, and this function could be called whenever that calculation is needed.
+
+These concepts help structure and control the flow of your PL/SQL programs, allowing for flexible and maintainable code that can interact with the database efficiently.
