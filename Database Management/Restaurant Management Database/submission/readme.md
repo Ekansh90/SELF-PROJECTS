@@ -1,5 +1,7 @@
 Restaurant Management Database Project Overview
-In this project, I designed and implemented a comprehensive database for managing a restaurant's operations. The database covers essential functionalities such as order processing, inventory management, employee management, and customer relationship management. Below is an elaboration on the structure and components of this database, along with the associated SQL scripts.
+In this project, I designed and implemented a comprehensive database for managing a restaurant's operations. The database covers essential functionalities such as order processing, inventory management, employee management, and customer relationship management. 
+
+Below is an elaboration on the structure and components of this database, along with the associated SQL scripts.
 
 1. Database Structure
 The database was designed with the following key tables:
