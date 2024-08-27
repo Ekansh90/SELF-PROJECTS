@@ -6,13 +6,21 @@ Below is an elaboration on the structure and components of this database, along 
 1. Database Structure
 The database was designed with the following key tables:
 
+
 Customers: Stores customer information, including contact details and preferences.
+
 Employees: Manages employee data, including roles, shifts, and salaries.
+
 Menu_Items: Contains details about the dishes offered, including pricing and ingredients.
+
 Orders: Records customer orders, linking them to menu items and customer details.
+
 Inventory: Tracks the ingredients and supplies, including their quantities and reorder levels.
+
 Suppliers: Holds information about the suppliers who provide the ingredients.
+
 Reservations: Manages table reservations, including customer details and reservation times.
+
 Payments: Tracks payment details for orders, including payment method and status.
 
 2. SQL Scripts and Operations
@@ -28,6 +36,8 @@ User Roles and Permissions: Implemented user roles to ensure that employees have
 Triggers and Stored Procedures: Added triggers for automatic inventory updates when an order is placed and stored procedures for complex operations like generating end-of-day sales reports.
 
 This restaurant management database was designed to streamline operations, enhance data accessibility, and support informed decision-making. The use of structured SQL scripts for data insertion, table creation, and reporting ensures that the system is robust, scalable, and easy to maintain.
+
+
 The diagram for set up relations( one-to-one, one-to-many, many-to-many ) between tables is attached below :
 
 
