@@ -57,27 +57,3 @@ class MinStack(object):
             return None
         else :
             return self.min_stack[-1]
-        
-
-
-# Your MinStack object will be instantiated and called as such:
-obj = MinStack()
-obj.push(-2)
-obj.push(0)
-obj.push(-3)
-
-min = obj.getMin()
-pop = obj.pop()
-top = obj.top()
-# min = obj.getMin()
-"""
-pop = obj.pop()
-pop = obj.pop()
-
-obj.push(2147483647)
-top = obj.top()
-
-"""
-#obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.getMin()
