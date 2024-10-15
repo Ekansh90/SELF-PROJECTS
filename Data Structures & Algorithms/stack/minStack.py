@@ -1,8 +1,5 @@
 class MinStack(object):
 
-    # MAIN IDEA IS TO KEEP TRACK OF TWO STACKS
-    # THE SECONDARY ONLY GETTING POPULATED IF WE FIND A SMALLER or EQUAL ELEMENT DURING PUSH
-    # AND getMin retrieves the top of min_Stack
     def __init__(self):
         self.main_stack = []
         self.min_stack = []
@@ -25,7 +22,7 @@ class MinStack(object):
         self.main_size += 1 
 
         
-    # delete element instead of setting to null , otherwise the top element is substituted as null
+
     def pop(self):
         """
         :rtype: None
@@ -36,8 +33,13 @@ class MinStack(object):
             rm1 = self.main_stack.pop()
             if rm1 == self.min_stack[-1]:
                 self.min_stack.pop()
+                self.min_size -= 1
+
+            self.main_size -= 1
 
             return None 
+
+            
 
     def top(self):
         """
@@ -53,7 +55,31 @@ class MinStack(object):
         """
         :rtype: int
         """
-        if len(self.min_stack) == 0:
+        if self.min_size == 0:
             return None
         else :
             return self.min_stack[-1]
+        
+
+
+# Your MinStack object will be instantiated and called as such:
+obj = MinStack()
+obj.push(-2)
+obj.push(0)
+obj.push(-3)
+
+min = obj.getMin()
+pop = obj.pop()
+top = obj.top()
+# min = obj.getMin()
+"""
+pop = obj.pop()
+pop = obj.pop()
+
+obj.push(2147483647)
+top = obj.top()
+
+"""
+#obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
